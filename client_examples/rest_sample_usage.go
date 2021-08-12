@@ -12,7 +12,7 @@ func main() {
 	apiKey := "XXX"
 	passPhrase := "XXX"
 	secret := "XXX"
-		
+
 	baseUrl := "https://qa.falconxdev.com"
 
 	client := clients.NewRestClient(clients.RestClientConfig{

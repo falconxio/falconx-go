@@ -12,7 +12,6 @@ import (
 type RestClient struct {
 	Config     RestClientConfig
 	HTTPClient *http.Client
-	RetryCount int
 }
 
 type RestClientConfig struct {
@@ -28,7 +27,6 @@ func NewRestClient(config RestClientConfig) *RestClient {
 		HTTPClient: &http.Client{
 			Timeout: 15 * time.Second,
 		},
-		RetryCount: 0,
 	}
 
 	return &client
@@ -134,8 +132,7 @@ func (client *RestClient) Headers(method, url, timestamp, data string) (map[stri
 	return header, nil
 }
 
-// Get a list of trading pairs you are eligible to trade
-// :return: []map[string]string
+// GetTradingPairs gets a list of trading pairs you are eligible to trade
 // Example: [{'base_token': 'BTC', 'quote_token': 'USD'}, {'base_token': 'ETH', 'quote_token': 'USD'}]
 func (client *RestClient) GetTradingPairs() ([]TokenPair, error) {
 	var result []TokenPair
@@ -148,12 +145,11 @@ func (client *RestClient) GetTradingPairs() ([]TokenPair, error) {
 	return result, nil
 }
 
-// Get a two_way, buy or sell quote for a token pair.
+// GetQuote gets a two_way, buy or sell quote for a token pair.
 //         :param base: (str) base token e.g. BTC, ETH
 //         :param quote: (str) quote token e.g. USD, BTC
 //         :param quantity: (float, Decimal)
 //         :param side: (str) 'two_way', 'buy', 'sell'
-//         :return: map[string]interface{}
 //		   Example:
 //             {
 //               "status": "success",
@@ -184,7 +180,7 @@ func (client *RestClient) GetQuote(quoteParams QuoteRequest) (QuoteResponse, err
 	return result, err
 }
 
-// Get a two_way, buy or sell quote for a token pair.
+// PlaceOrder gets a two_way, buy or sell quote for a token pair.
 //         :param base: (str) base token e.g. BTC, ETH
 //         :param quote: (str) quote token e.g. USD, BTC
 //         :param quantity: (float, Decimal)
@@ -193,7 +189,6 @@ func (client *RestClient) GetQuote(quoteParams QuoteRequest) (QuoteResponse, err
 //         :param time_in_force: (str) 'fok' [only required for limit orders]
 //         :param limit_price: (float, Decimal) [only required for limit orders]
 //         :param slippage_bps: (float, Decimal) [only valid for fok limit orders]
-//         :return: map[string]interface
 //		   Example:
 //             {
 //                 "status": "success",
@@ -234,10 +229,9 @@ func (client *RestClient) PlaceOrder(orderParams OrderRequest) (OrderResponse, e
 	return result, err
 }
 
-// Execute the quote.
+// ExecuteQuote executes the quote.
 //         :param fx_quote_id: (str) the quote id received via get_quote
 //         :param side: (str) must be either buy or sell
-//         :return: map[string]interface same as object received from get_quote
 //             Example:
 //                 {
 //                     'status': 'success',
@@ -261,9 +255,8 @@ func (client *RestClient) ExecuteQuote(quoteParams QuoteExecutionRequest) (Quote
 	return result, err
 }
 
-// Check the status of a quote already requested.
+// GetQuoteStatus checks the status of a quote already requested.
 //         :param fx_quote_id: (str) the quote id received via get_quote
-//         :return: map[string]interface; Same quote object as returned by get_quote
 //             Example:
 //                 {
 //                   "status": "success",
@@ -295,11 +288,10 @@ func (client *RestClient) GetQuoteStatus(fxQuoteID string) (QuoteResponse, error
 	return result, err
 }
 
-// Get a historical record of executed quotes in the time range.
+// GetExecutedQuotes gets a historical record of executed quotes in the time range.
 //         :param t_start: (str) time in ISO8601 format (e.g. '2019-07-02T22:06:24.342342+00:00')
 //         :param t_end: (str) time in ISO8601 format (e.g. '2019-07-03T22:06:24.234213+00:00'
 //         :param platform: possible values -> ('browser', 'api', 'margin')
-//         :return: []map[string]interface
 //             Example:
 //                 [{'buy_price': 293.1, 'error': None, 'fx_quote_id': 'e2e1758f1a094a2a85825b592e9fc0d9',
 //                 'is_filled': True, 'price_executed': 293.1, 'platform': 'browser', 'quantity_requested': {'token': 'ETH', 'value': '0.10000'},
@@ -320,9 +312,8 @@ func (client *RestClient) GetExecutedQuotes(tStart time.Time, tEnd time.Time) ([
 	return result, err
 }
 
-// Get account balances.
+// GetBalances gets account balances.
 //         :param platform: possible values -> ('browser', 'api', 'margin')
-//         :return: []map[string]string
 //             Example:
 //                 [
 //                     {'balance': 0.0, 'token': 'BTC', 'platform': 'browser'},
@@ -336,11 +327,10 @@ func (client *RestClient) GetBalances() ([]Balance, error) {
 	return result, err
 }
 
-// Get a historical record of deposits/withdrawals between the given time range.
+// GetTransfers gets a historical record of deposits/withdrawals between the given time range.
 //         :param t_start: (str) time in ISO8601 format (e.g. '2019-07-02T22:06:24.342342+00:00')
 //         :param t_end: (str) time in ISO8601 format (e.g. '2019-07-03T22:06:24.234213+00:00'
 //         :param platform: possible values -> ('browser', 'api', 'margin')
-//         :return: []map[string]interface
 //             Example:
 //                 [
 //                   {
