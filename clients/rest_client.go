@@ -124,7 +124,7 @@ func (client *RestClient) Headers(method, url, timestamp, data string) (map[stri
 		data,
 	)
 
-	sig, err := generateSig(message, client.Config.Secret)
+	sig, err := GenerateSig(message, client.Config.Secret)
 	if err != nil {
 		return nil, err
 	}
