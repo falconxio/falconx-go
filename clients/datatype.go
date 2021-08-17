@@ -146,6 +146,25 @@ type TradeSize struct {
 	TradeSizeLimitQuoteToken TradeSizeLimit `json:"trade_size_limits_in_quote_token"`
 }
 
+type SubscriptionRequest struct {
+	TokenPair       TokenPair `json:"token_pair"`
+	Quantity        []string  `json:"quantity"`
+	ClientRequestID string    `json:"client_request_id"`
+}
+
+type UserConfigRequest struct {
+	MessageType     string `json:"message_type"`
+	ClientRequestID string `json:"client_request_id"`
+}
+
+type UserConfigResponse struct {
+	MessageType     string      `json:"message_type"`
+	ClientRequestID string      `json:"client_request_id"`
+	Success         bool        `json:"success"`
+	Data            interface{} `json:"data"`
+	Error           interface{} `json:"error"`
+}
+
 type Error struct {
 	Code   int    `json:"code"`
 	Reason string `json:"reason"`
