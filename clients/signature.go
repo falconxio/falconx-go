@@ -6,7 +6,7 @@ import (
 	"encoding/base64"
 )
 
-func generateSig(message, secret string) (string, error) {
+func GenerateSig(message, secret string) (string, error) {
 	key, err := base64.StdEncoding.DecodeString(secret)
 	if err != nil {
 		Error := Error{Code: 401, Reason: "Bad Secret Key"}

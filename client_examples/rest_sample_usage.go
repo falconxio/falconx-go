@@ -8,7 +8,7 @@ import (
 	"github.com/falconxio/falconx-go/clients"
 )
 
-func main() {
+func rest_client() {
 	apiKey := "XXX"
 	passPhrase := "XXX"
 	secret := "XXX"
