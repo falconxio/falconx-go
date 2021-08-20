@@ -1,4 +1,4 @@
-package main
+package client_examples
 
 import (
 	"encoding/json"
@@ -8,15 +8,14 @@ import (
 	"github.com/falconxio/falconx-go/clients"
 )
 
-func rest_client() {
-	apiKey := "XXX"
-	passPhrase := "XXX"
-	secret := "XXX"
+func RunRestExamples(apiKey string, secret string, passPhrase string, host string) {
 
-	baseUrl := "https://qa.falconxdev.com"
+	if len(host) == 0 {
+		host = "https://qa.falconxdev.com"
+	}
 
 	client := clients.NewRestClient(clients.RestClientConfig{
-		BaseURL:    baseUrl,
+		BaseURL:    host,
 		APIKey:     apiKey,
 		Passphrase: passPhrase,
 		Secret:     secret,

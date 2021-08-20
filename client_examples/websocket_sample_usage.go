@@ -1,4 +1,4 @@
-package main
+package client_examples
 
 import (
 	"fmt"
@@ -21,20 +21,20 @@ const (
 	MaxLevelsRequest      = "GET_MAX_LEVELS"
 )
 
-func main() {
+func RunWebSocketExamples(apiKey string, secret string, passphrase string, host string) {
 
-	host := "ws.falconx.io"
-	API_KEY := ""
-	SECRET_KEY := ""
-	PASSPHRASE := ""
+	if len(host) == 0 {
+		host = "ws.falconx.io"
+	}
+
 	streamingNamespace := "/streaming"
 
 	client := clients.NewSocketClient(
 		clients.SocketClientConfig{
 			Host:       host,
-			Secret:     SECRET_KEY,
-			APIKey:     API_KEY,
-			Passphrase: PASSPHRASE,
+			Secret:     secret,
+			APIKey:     apiKey,
+			Passphrase: passphrase,
 		},
 		streamingNamespace,
 	)
