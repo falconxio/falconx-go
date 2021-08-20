@@ -34,4 +34,9 @@ go run run_examples -api_key=XXX -secret=XXX -passphrase=XXX -example_set=rest
 go run run_examples -api_key=XXX -secret=XXX -passphrase=XXX -example_set=websocket
 ```
 
+Questions?
+==================================
+In case of any questions please contact support@falconx.io
+
+
 
