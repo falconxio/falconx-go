@@ -46,22 +46,22 @@ func main() {
 	}
 
 	client.Connection.On(OnConnection, func(channel *gosocketio.Channel) {
-		fmt.Println("falconx socketio server connected")
+		fmt.Println("Connection established")
 	})
 
 	client.Connection.On(OnDisconnection, func(channel *gosocketio.Channel, reasons gosocketio.ConnectionErrors) {
 		errors := multierr.Combine(reasons.Errors...)
-		fmt.Println("falconx socketio server disconnected.", "error:", errors)
+		fmt.Println("Disconnected from FalconX", "error:", errors)
 	})
 
 	client.Connection.ConnectNamespace(streamingNamespace)
 
 	client.Connection.On(OnResponse, func(channel *gosocketio.Channel, msg interface{}) {
-		fmt.Println("falconx socketio server response.", "message:", msg)
+		fmt.Println("Response received from Socket: ", "message:", msg)
 	})
 
 	client.Connection.On(OnStream, func(channel *gosocketio.Channel, stream interface{}) {
-		fmt.Println("price update received", "stream", stream)
+		fmt.Println("Price change tick received", "stream", stream)
 	})
 
 	// User Config Requests
@@ -82,12 +82,12 @@ func main() {
 
 	client.Connection.Emit("subscribe", streamingNamespace, &clients.SubscriptionRequest{
 		TokenPair: clients.TokenPair{
-			BaseToken:  "BTC",
+			BaseToken:  "ETH",
 			QuoteToken: "USD",
 		},
-		Quantity:        []string{"0.000009", "0.00009", "0.0009", "0.009", "0.09", "0.9"},
-		ClientRequestID: "1",
+		Quantity:        []string{"0.001", "0.01", "0.1", "1", "2", "5"},
+		ClientRequestID: "5c5325e3-ee42-76fa-932c-64dce446d8be",
 	})
 
-	time.Sleep(10 * time.Minute)
+	time.Sleep(15 * time.Minute)
 }
