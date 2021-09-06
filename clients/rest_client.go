@@ -25,7 +25,7 @@ func NewRestClient(config RestClientConfig) *RestClient {
 	client := RestClient{
 		Config: config,
 		HTTPClient: &http.Client{
-			Timeout: 15 * time.Second,
+			Timeout: 60 * time.Second,
 		},
 	}
 
