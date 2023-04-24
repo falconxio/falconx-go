@@ -1,8 +1,8 @@
 module github.com/falconxio/falconx-go
 
 go 1.14
-
-replace github.com/graarh/golang-socketio => github.com/paxosglobal/golang-socketio v0.0.0-20201014162801-62186d770897
+// TODO: change this to falconx repo once the fork is done successfully
+replace github.com/graarh/golang-socketio => github.com/pradeepfx/golang-socketio v0.0.0-20230424110355-180e43d5e4f1
 
 require (
 	github.com/googollee/go-socket.io v1.6.0

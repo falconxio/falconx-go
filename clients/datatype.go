@@ -148,7 +148,7 @@ type TradeSize struct {
 
 type SubscriptionRequest struct {
 	TokenPair       TokenPair `json:"token_pair"`
-	Quantity        []string  `json:"quantity"`
+	Quantity        []float64 `json:"quantity"`
 	ClientRequestID string    `json:"client_request_id"`
 }
 

@@ -2,11 +2,12 @@ package client_examples
 
 import (
 	"fmt"
+	"log"
+	"time"
+
 	"github.com/falconxio/falconx-go/clients"
 	gosocketio "github.com/graarh/golang-socketio"
 	"go.uber.org/multierr"
-	"log"
-	"time"
 )
 
 const (
@@ -41,6 +42,7 @@ func RunWebSocketExamples(apiKey string, secret string, passphrase string, host 
 
 	err := client.Connect()
 	if err != nil {
+		log.Println(err)
 		log.Fatal("Error Connecting to Falconx!")
 		panic(err)
 	}
@@ -85,7 +87,7 @@ func RunWebSocketExamples(apiKey string, secret string, passphrase string, host 
 			BaseToken:  "ETH",
 			QuoteToken: "USD",
 		},
-		Quantity:        []string{"0.001", "0.01", "0.1", "1", "2", "5"},
+		Quantity:        []float64{0.001, 0.01, 0.1},
 		ClientRequestID: "5c5325e3-ee42-76fa-932c-64dce446d8be",
 	})
 

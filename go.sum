@@ -1,3 +1,5 @@
+github.com/ambelovsky/gosf-socketio v0.0.0-20220810204405-0f97832ec7af h1:SXdLHP09xttaOeI9q3+strkbVIAmdo6CJwa9EqqMnug=
+github.com/ambelovsky/gosf-socketio v0.0.0-20220810204405-0f97832ec7af/go.mod h1:1w9JQkj1okH2vn3f95PdSbVvGg6d+x+TcaXQFpCfxmA=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/gofrs/uuid v4.0.0+incompatible h1:1SD/1F5pU8p29ybwgQSwpQk+mwdRrXCYuPhW6m+TnJw=
@@ -6,13 +8,19 @@ github.com/gomodule/redigo v1.8.4 h1:Z5JUg94HMTR1XpwBaSH4vq3+PNSIykBLxMdglbw10gg
 github.com/gomodule/redigo v1.8.4/go.mod h1:P9dn9mFrCBvWhGE1wpxx6fgq7BAeLBk+UUUzlpkBYO0=
 github.com/googollee/go-socket.io v1.6.0 h1:zbz0kEERgeYL/yEu9pBXSIyZEBluiNc2AJaMFmFjIOY=
 github.com/googollee/go-socket.io v1.6.0/go.mod h1:0vGP8/dXR9SZUMMD4+xxaGo/lohOw3YWMh2WRiWeKxg=
+github.com/googollee/go-socket.io v1.7.0 h1:ODcQSAvVIPvKozXtUGuJDV3pLwdpBLDs1Uoq/QHIlY8=
+github.com/googollee/go-socket.io v1.7.0/go.mod h1:0vGP8/dXR9SZUMMD4+xxaGo/lohOw3YWMh2WRiWeKxg=
 github.com/gorilla/websocket v1.4.2 h1:+/TMaTYc4QFitKJxsQ7Yye35DkWvkdLcvGKqM+x0Ufc=
 github.com/gorilla/websocket v1.4.2/go.mod h1:YR8l580nyteQvAITg2hZ9XVh4b55+EU/adAjf1fMHhE=
+github.com/gorilla/websocket v1.5.0 h1:PPwGk2jz7EePpoHN/+ClbZu8SPxiqlu12wZP/3sWmnc=
+github.com/gorilla/websocket v1.5.0/go.mod h1:YR8l580nyteQvAITg2hZ9XVh4b55+EU/adAjf1fMHhE=
 github.com/graarh/golang-socketio v0.0.0-20170510162725-2c44953b9b5f h1:utzdm9zUvVWGRtIpkdE4+36n+Gv60kNb7mFvgGxLElY=
 github.com/graarh/golang-socketio v0.0.0-20170510162725-2c44953b9b5f/go.mod h1:8gudiNCFh3ZfvInknmoXzPeV17FSH+X2J5k2cUPIwnA=
 github.com/paxosglobal/golang-socketio v0.0.0-20201014162801-62186d770897 h1:0XOJJ05okWHI1+K24kxFU/8NjTsNnlwMFGkJvf7uAoo=
 github.com/paxosglobal/golang-socketio v0.0.0-20201014162801-62186d770897/go.mod h1:0vmqpoS9wSkSvjYh8js1NJot9q0/0ZAQaNPSXWLNb1g=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
+github.com/pradeepfx/golang-socketio v0.0.0-20230424110355-180e43d5e4f1 h1:60vRgA5J7HlHiZdmzFfDxWmpRsva6I+ukU/xeiwQcNs=
+github.com/pradeepfx/golang-socketio v0.0.0-20230424110355-180e43d5e4f1/go.mod h1:iSMFZPwPuP1c18TpmBYILSkf0m1bGx3F3rCl0ZF+sEw=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/testify v1.3.0/go.mod h1:M5WIy9Dh21IEIfnGCwXGc5bZfKNJtfHm1UVUgZn+9EI=
 github.com/stretchr/testify v1.5.1/go.mod h1:5W2xD1RspED5o8YsWQXVCued0rvSQ+mT+I5cxcmMvtA=
