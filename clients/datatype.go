@@ -83,12 +83,12 @@ type OrderResponse struct {
 	ExpiryTime    time.Time        `json:"t_expiry"`
 	ExecutionTime time.Time        `json:"t_execute"`
 	IsFilled      bool             `json:"is_filled"`
-	GrossFeeBps   float64          `json:"gross_fee_bps,string"`
-	GrossFeeUSD   float64          `json:"gross_fee_usd,string"`
-	RebateBps     float64          `json:"rebate_bps,string"`
-	RebateUSD     float64          `json:"rebate_usd,string"`
-	FeeBps        float64          `json:"fee_bps,string"`
-	FeeUSD        float64          `json:"fee_usd,string"`
+	GrossFeeBps   float64          `json:"gross_fee_bps"`
+	GrossFeeUSD   float64          `json:"gross_fee_usd"`
+	RebateBps     float64          `json:"rebate_bps"`
+	RebateUSD     float64          `json:"rebate_usd"`
+	FeeBps        float64          `json:"fee_bps"`
+	FeeUSD        float64          `json:"fee_usd"`
 	SideExecuted  string           `json:"side_executed"`
 	TraderEmail   string           `json:"trader_email"`
 	OrderType     string           `json:"order_type"`
