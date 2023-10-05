@@ -350,7 +350,7 @@ func (client *RestClient) GetBalances() ([]Balance, error) {
 //                 ]
 func (client *RestClient) GetTransfers(tStart time.Time, tEnd time.Time) ([]Transfer, error) {
 	var result []Transfer
-	requestParams := map[string]string{"t_start": tStart.Format(time.RFC3339), "t_end": tEnd.Format(time.RFC3339), "platform": "api"}
+	requestParams := map[string]string{"t_start": tStart.Format(time.RFC3339), "t_end": tEnd.Format(time.RFC3339)}
 	_, err := client.Request("GET", "/v1/transfers", requestParams, &result)
 	return result, err
 }

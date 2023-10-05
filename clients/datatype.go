@@ -115,7 +115,7 @@ type Transfer struct {
 	Type       string    `json:"type"`
 	Platform   string    `json:"platform"`
 	Token      string    `json:"token"`
-	Quantity   float64   `json:"quantity,string"`
+	Quantity   float64   `json:"quantity"`
 	CreateTime time.Time `json:"t_create"`
 	Status     string    `json:"status"`
 }
