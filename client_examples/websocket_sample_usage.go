@@ -3,7 +3,6 @@ package client_examples
 import (
 	"fmt"
 	"log"
-	"time"
 
 	"github.com/falconxio/falconx-go/clients"
 	gosocketio "github.com/graarh/golang-socketio"
@@ -91,6 +90,6 @@ func RunWebSocketExamples(apiKey string, secret string, passphrase string, host 
 		ClientRequestID: "5c5325e3-ee42-76fa-932c-64dce446d8be",
 	})
 
-	wait:= make(chan bool, 1)
+	wait := make(chan bool, 1)
 	<-wait
 }
