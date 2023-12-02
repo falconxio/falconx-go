@@ -112,12 +112,15 @@ type TotalBalance struct {
 }
 
 type Transfer struct {
-	Type       string    `json:"type"`
-	Platform   string    `json:"platform"`
-	Token      string    `json:"token"`
-	Quantity   float64   `json:"quantity"`
-	CreateTime time.Time `json:"t_create"`
-	Status     string    `json:"status"`
+	Type            string     `json:"type"`
+	Platform        string     `json:"platform"`
+	Token           string     `json:"token"`
+	Quantity        float64    `json:"quantity"`
+	CreateTime      time.Time  `json:"t_create"`
+	Status          string     `json:"status"`
+	FxTransferID    string     `json:"fx_transfer_id"`
+	DeleteTime      *time.Time `json:"t_delete"`
+	TransactionHash string     `json:"transaction_hash"`
 }
 
 type TradeVolume struct {
