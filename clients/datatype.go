@@ -123,7 +123,7 @@ type OrderResponse3 struct {
 	SellPrice     float64          `json:"sell_price"`
 	Platform      string           `json:"platform"`
 	TokenPair     TokenPair        `json:"token_pair"`
-	Quantity      Quantity         `json:"quantity_requested"`
+	Quantity      Quantity3        `json:"quantity_requested"`
 	SideRequested string           `json:"side_requested"`
 	QuoteTime     time.Time        `json:"t_quote"`
 	ExpiryTime    time.Time        `json:"t_expiry"`
