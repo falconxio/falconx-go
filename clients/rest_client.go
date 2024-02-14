@@ -229,6 +229,12 @@ func (client *RestClient) PlaceOrder(orderParams OrderRequest) (OrderResponse, e
 	return result, err
 }
 
+func (client *RestClient) PlaceOrder3(orderParams OrderRequest3) (OrderResponse3, error) {
+	var result OrderResponse3
+	_, err := client.Request("POST", "/v3/order", orderParams, &result)
+	return result, err
+}
+
 // ExecuteQuote executes the quote.
 //         :param fx_quote_id: (str) the quote id received via get_quote
 //         :param side: (str) must be either buy or sell

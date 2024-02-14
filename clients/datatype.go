@@ -15,6 +15,11 @@ type Quantity struct {
 	Value float64 `json:"value,string"`
 }
 
+type Quantity3 struct {
+	Token string  `json:"token"`
+	Value float64 `json:"value"`
+}
+
 type QuoteRequest struct {
 	TokenPair     TokenPair `json:"token_pair"`
 	Quantity      Quantity  `json:"quantity"`
@@ -25,6 +30,17 @@ type QuoteRequest struct {
 type OrderRequest struct {
 	TokenPair     TokenPair `json:"token_pair"`
 	Quantity      Quantity  `json:"quantity"`
+	Side          string    `json:"side"`
+	OrderType     string    `json:"order_type"`
+	TimeInForce   string    `json:"time_in_force"`
+	LimitPrice    float64   `json:"limit_price"`
+	SlippageBps   float64   `json:"slippage_bps"`
+	ClientOrderId string    `json:"client_order_id"`
+}
+
+type OrderRequest3 struct {
+	TokenPair     TokenPair `json:"token_pair"`
+	Quantity      Quantity3 `json:"quantity"`
 	Side          string    `json:"side"`
 	OrderType     string    `json:"order_type"`
 	TimeInForce   string    `json:"time_in_force"`
@@ -95,6 +111,36 @@ type OrderResponse struct {
 	TimeInForce   string           `json:"time_in_force"`
 	LimitPrice    float64          `json:"limit_price,string"`
 	SlippageBps   float64          `json:"slippage_bps,string"`
+	Error         FalconXError     `json:"error"`
+	Warnings      []FalconXWarning `json:"warnings"`
+	ClientOrderId string           `json:"client_order_id"`
+}
+
+type OrderResponse3 struct {
+	Status        string           `json:"status"`
+	FxQuoteId     string           `json:"fx_quote_id"`
+	BuyPrice      float64          `json:"buy_price"`
+	SellPrice     float64          `json:"sell_price"`
+	Platform      string           `json:"platform"`
+	TokenPair     TokenPair        `json:"token_pair"`
+	Quantity      Quantity         `json:"quantity_requested"`
+	SideRequested string           `json:"side_requested"`
+	QuoteTime     time.Time        `json:"t_quote"`
+	ExpiryTime    time.Time        `json:"t_expiry"`
+	ExecutionTime time.Time        `json:"t_execute"`
+	IsFilled      bool             `json:"is_filled"`
+	GrossFeeBps   float64          `json:"gross_fee_bps"`
+	GrossFeeUSD   float64          `json:"gross_fee_usd"`
+	RebateBps     float64          `json:"rebate_bps"`
+	RebateUSD     float64          `json:"rebate_usd"`
+	FeeBps        float64          `json:"fee_bps"`
+	FeeUSD        float64          `json:"fee_usd"`
+	SideExecuted  string           `json:"side_executed"`
+	TraderEmail   string           `json:"trader_email"`
+	OrderType     string           `json:"order_type"`
+	TimeInForce   string           `json:"time_in_force"`
+	LimitPrice    float64          `json:"limit_price"`
+	SlippageBps   float64          `json:"slippage_bps"`
 	Error         FalconXError     `json:"error"`
 	Warnings      []FalconXWarning `json:"warnings"`
 	ClientOrderId string           `json:"client_order_id"`
