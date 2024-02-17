@@ -318,6 +318,14 @@ func (client *RestClient) GetExecutedQuotes(tStart time.Time, tEnd time.Time) ([
 	return result, err
 }
 
+func (client *RestClient) GetExecutedQuotesAll(tStart time.Time, tEnd time.Time) ([]QuoteResponse, error) {
+	var result []QuoteResponse
+	// NS: we don't specify the platform so we can get all trades
+	requestParams := map[string]string{"t_start": tStart.Format(time.RFC3339), "t_end": tEnd.Format(time.RFC3339)}
+	_, err := client.Request("GET", "/v1/quotes", requestParams, &result)
+	return result, err
+}
+
 // GetBalances gets account balances.
 //         :param platform: possible values -> ('browser', 'api', 'margin')
 //             Example:
