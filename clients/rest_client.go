@@ -229,6 +229,12 @@ func (client *RestClient) PlaceOrder(orderParams OrderRequest) (OrderResponse, e
 	return result, err
 }
 
+func (client *RestClient) PlaceOrder3(orderParams OrderRequest3) (OrderResponse3, error) {
+	var result OrderResponse3
+	_, err := client.Request("POST", "/v3/order", orderParams, &result)
+	return result, err
+}
+
 // ExecuteQuote executes the quote.
 //         :param fx_quote_id: (str) the quote id received via get_quote
 //         :param side: (str) must be either buy or sell
@@ -312,6 +318,14 @@ func (client *RestClient) GetExecutedQuotes(tStart time.Time, tEnd time.Time) ([
 	return result, err
 }
 
+func (client *RestClient) GetExecutedQuotesAll(tStart time.Time, tEnd time.Time) ([]QuoteResponse, error) {
+	var result []QuoteResponse
+	// NS: we don't specify the platform so we can get all trades
+	requestParams := map[string]string{"t_start": tStart.Format(time.RFC3339), "t_end": tEnd.Format(time.RFC3339)}
+	_, err := client.Request("GET", "/v1/quotes", requestParams, &result)
+	return result, err
+}
+
 // GetBalances gets account balances.
 //         :param platform: possible values -> ('browser', 'api', 'margin')
 //             Example:
@@ -350,7 +364,7 @@ func (client *RestClient) GetBalances() ([]Balance, error) {
 //                 ]
 func (client *RestClient) GetTransfers(tStart time.Time, tEnd time.Time) ([]Transfer, error) {
 	var result []Transfer
-	requestParams := map[string]string{"t_start": tStart.Format(time.RFC3339), "t_end": tEnd.Format(time.RFC3339), "platform": "api"}
+	requestParams := map[string]string{"t_start": tStart.Format(time.RFC3339), "t_end": tEnd.Format(time.RFC3339)}
 	_, err := client.Request("GET", "/v1/transfers", requestParams, &result)
 	return result, err
 }
