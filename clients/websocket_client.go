@@ -5,7 +5,6 @@ import (
 	"crypto/sha256"
 	"encoding/base64"
 	"fmt"
-	"log"
 
 	gosocketio "github.com/graarh/golang-socketio"
 	"github.com/graarh/golang-socketio/transport"
@@ -58,8 +57,7 @@ func NewSocketClient(config SocketClientConfig, namespace string) *SocketClient 
 func (client *SocketClient) Connect() error {
 	err := client.AddAuth()
 	if err != nil {
-		log.Fatal("Error creating authentication parameters.")
-		return err
+		return fmt.Errorf("create authentication parameters: %w", err)
 	}
 	falconxWsUrl := webSocketSecureProtocol + client.Config.Host + socketioUrl
 	client.Connection, err = gosocketio.Dial(falconxWsUrl, client.Transport)
